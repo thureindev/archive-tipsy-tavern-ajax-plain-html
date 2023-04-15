@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tipsy Tavern</title>
+        
+        <!-- Bootstrap-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <!-- Tailwind -->
+        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" /> -->
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="style.css">
+        
+    </head>
+    
+    <body>
+        <div class="container">
+
+            <div id="prompt-display">
+                <h1>Tipsy Tavern</h1>
+                
+                <div id="tipsy-search-bar">
+
+                    <form id="find-cocktail" method="GET" class="searchBox">
+
+                        <button class="searchBarButton btn-search" type="submit" href="#">
+                            <span class="material-icons">
+                                search
+                            </span>
+                        </button>
+
+                        <span class="material-icons search-modifier-icon">
+                            local_bar
+                        </span>
+                        
+                        <input id="prompt-c-name" class="searchInput" type="text" name="promptText" placeholder="Search by cocktail name" autocomplete="off">
+                        
+                    </form>
+
+                    <form id="ingredient-cocktail" method="GET" class="searchBox">
+                        
+                        <button class="searchBarButton btn-search" type="submit" href="#">
+                            <span class="material-icons">
+                                search
+                            </span>
+                        </button>
+
+                        <span class="material-icons search-modifier-icon">
+                            liquor
+                        </span>
+
+                        <input id="prompt-ingredient" class="searchInput" type="text" name="promptText" placeholder="Search by ingredients" autocomplete="off">
+                        
+                    </form>
+
+                    <a id="btn-cocktail-search" class="searchBarButton search-modifier" type="submit" href="#">
+                        <span class="material-icons">
+                            local_bar
+                        </span>
+                    </a>
+
+                    <a id="btn-ingredient-search" class="searchBarButton search-modifier" type="submit" href="#">
+                        <span class="material-icons-outlined">
+                            liquor
+                        </span>
+                    </a>
+
+                    <form id="random-cocktail" method="GET" class="searchBarButton">
+
+                        <button class="searchBarButton" type="submit" href="#">
+                            <a class="searchBarButton" href="#">
+                                <span class="material-icons-outlined">
+                                    casino
+                                </span>
+                            </a>
+                        </button>
+                    </form>
+                    
+
+                    <form id="fridge-cocktail" method="GET" class="searchBarButton">
+
+                        <button class="searchBarButton" type="submit" href="#">
+                            <a class="searchBarButton" href="#">
+                                <span class="material-icons-outlined">
+                                    kitchen
+                                </span>
+                            </a>
+                        </button>
+                    </form>
+                </div>
+                
+                
+                
+
+            </div>
+            
+            <div id="data-display">
+                <hr>
+                <div id="pagination-controls"></div>
+
+                <div id="cocktail-display"></div>
+                <div id="special-cocktail-display"></div>
+                <div id="fridge-display"></div>
+            </div>
+        </div>
+        
+        
+
+
+        <!-- Bootstrap Optional JavaScript-->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS-->
+        <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+        
+        <!-- jquery -->
+        <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+        
+        <!-- Font Awesome-->
+        <script src="https://kit.fontawesome.com/fd02c3c8a3.js" crossorigin="anonymous"></script>
+        
+        <!-- Tailwind -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script> -->
+        
+        
+        <!-- <script src="Page.js"></script> -->
+        <!-- <script src="ajax.js"></script> -->
+
+
+
+        <script src="test.js"></script>
+
+
+        <script>
+            function include(file) {
+            
+                var script = document.createElement('script');
+                script.src = file;
+                script.type = 'text/javascript';
+                script.defer = true;
+                
+                //!IMPORTANT  NEED ASYNC AWAIT HERE!
+                document.getElementsByTagName('head').item(0).appendChild(script);
+            }
+            
+            /* Include Many js files */ //  include order is important
+            
+            //  //  variables and independent functions
+            include('js/vars.js');
+            include('js/helper_funcs.js');
+            //  // helpers
+            include('js/view_controllers.js');
+            //  //  Objects
+            include('js/Page.js');
+            
+            include('js/pagination.js');
+
+            //  //  ajax calls // ajax files must be called only after pagination.js
+            include('ajax/c_name_prompt_ajax.js');
+            include('ajax/ingredient_prompt_ajax.js');
+            include('ajax/random_ajax.js');
+            include('ajax/fridge_ajax.js');
+            
+
+        </script>
+
+    </body>
+</html>
