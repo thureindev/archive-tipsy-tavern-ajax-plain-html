@@ -11,7 +11,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: 'get',
-            url: 'http://localhost:3000/cocktail/prompt',
+            url: 'http://localhost:8080/cocktail/prompt',
 
             data: {    
                 "promptField": "c_name",

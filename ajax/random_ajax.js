@@ -7,7 +7,7 @@ $(document).ready(function(){
         
         $.ajax({
             type: 'get',
-            url: 'http://localhost:3000/cocktail/random',
+            url: 'http://localhost:8080/cocktail/random',
 
             data: {
                 count: 4
