@@ -7,7 +7,7 @@ $(document).ready(function(){
         
         $.ajax({
             type: 'get',
-            url: 'http://localhost:8080/cocktail/random',
+            url: 'https://tipsy-tavern-server.onrender.com/cocktail/random',
 
             data: {
                 count: 4

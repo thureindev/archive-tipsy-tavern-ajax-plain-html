@@ -11,7 +11,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: 'get',
-            url: 'http://localhost:8080/cocktail/prompt',
+            url: 'https://tipsy-tavern-server.onrender.com/cocktail/prompt',
 
             data: {    
                 "promptField": "ingredient",
